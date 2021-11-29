@@ -3,7 +3,7 @@ package com.company;
 public class Point
 {
     //methods
-    public Point (int x, int y)
+    public Point (double x, double y)
     {
         this.x = x;
         this.y = y;
@@ -14,38 +14,37 @@ public class Point
         return "(" + x + ", " + y + ")";
     }
 
-    public int getX() {return x;}
+    public double getX() {return x;}
 
-    public int getY() {return y;}
+    public double getY() {return y;}
 
-    public boolean onXaxis (Point point)
+    public boolean onXaxis ()
     {
-        return point.y == 0;
+        return y == 0;
     }
 
-    public boolean sameCoordinate (Point point, int[] coordinates)
+    public boolean sameCoordinate (Point p)
     {
-        return (point.x == coordinates[0]) && (point.y == coordinates[1]);
+        return (x == p.x) && (y == p.y);
     }
 
-    public double distance (Point point, int[] coordinates)
+    public double distance (Point p)
     {
-        double distance = (Math.sqrt (Math.pow((point.y - coordinates[0]), 2)
-                        + Math.pow(Math.sqrt(point.y - coordinates[1]), 2)));
+        double distance = (Math.sqrt (Math.pow((x - p.x), 2)
+                        + Math.pow(Math.sqrt(y - p.y), 2)));
         return distance;
     }
 
-    public boolean onUnitCircle (Point point)
+    public boolean onUnitCircle ()
     {
         return (Math.sqrt(x) + Math.sqrt(y)) == 1;
     }
 
-    public int[] midpoint (Point point, int[] coordinates)
+    public Point midpoint (Point p)
     {
-        int[] midpoint = {(point.x + coordinates[0]) / 2, (point.y + coordinates[1]) / 2};
-        return midpoint;
+        return new Point ((x + p.x) / 2, (y + p.y) / 2);
     }
 
     //fields
-    private int x, y;
+    private double x, y;
 }

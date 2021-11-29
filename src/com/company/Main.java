@@ -4,7 +4,9 @@ public class Main
 {
     public static void main(String[] args)
     {
-        Point point = new Point (5, 7);
-        System.out.println (point);
+        Point p1 = new Point (5, 7);
+        Point p2 = new Point (-2, 3);
+        System.out.println (p1);
+        System.out.println (p1.midpoint(p2));
     }
 }
